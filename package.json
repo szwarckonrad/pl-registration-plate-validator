@@ -1,0 +1,25 @@
+{
+  "name": "pl-registration-plate-validator",
+  "version": "0.0.1",
+  "description": "Validate provided Polish registration plate number.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szwarckonrad/pl-registration-plate-validator.git"
+  },
+  "keywords": [
+    "validator",
+    "typescript",
+    "registration",
+    "plate"
+  ],
+  "author": "Konrad Szwarc @ https://github.com/szwarckonrad/",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szwarckonrad/pl-registration-plate-validator/issues"
+  },
+  "homepage": "https://github.com/szwarckonrad/pl-registration-plate-validator#readme"
+}
