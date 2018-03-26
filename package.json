@@ -4,7 +4,8 @@
   "description": "Validate provided Polish registration plate number.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -16,10 +17,30 @@
     "registration",
     "plate"
   ],
-  "author": "Konrad Szwarc @ https://github.com/szwarckonrad/",
+  "author": "Konrad Szwarc <https://github.com/szwarckonrad/>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/szwarckonrad/pl-registration-plate-validator/issues"
   },
-  "homepage": "https://github.com/szwarckonrad/pl-registration-plate-validator#readme"
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "homepage": "https://github.com/szwarckonrad/pl-registration-plate-validator#readme",
+  "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.2",
+    "typescript": "^2.7.2"
+  }
 }
