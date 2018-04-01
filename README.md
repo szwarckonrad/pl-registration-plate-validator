@@ -1,4 +1,6 @@
 # pl-registration-plate-validator
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/szwarckonrad/pl-registration-plate-validator.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/szwarckonrad/pl-registration-plate-validator.svg?branch=master)](https://travis-ci.org/szwarckonrad/pl-registration-plate-validator)
 [![Coverage Status](https://coveralls.io/repos/github/szwarckonrad/pl-registration-plate-validator/badge.svg?branch=master)](https://coveralls.io/github/szwarckonrad/pl-registration-plate-validator?branch=master)
 
