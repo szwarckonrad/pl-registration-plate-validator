@@ -1,4 +1,5 @@
 # pl-registration-plate-validator
+[![Build Status](https://travis-ci.org/szwarckonrad/pl-registration-plate-validator.svg?branch=master)](https://travis-ci.org/szwarckonrad/pl-registration-plate-validator)
 
 NPM package for validating user provided Polish registration plate. Works with registration plates issued after 2000 both regular (e.q. WZ 20000) and vanity (WO SIEMA).
 
