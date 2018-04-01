@@ -1,4 +1,7 @@
+import {map} from "lodash";
+
 import {validatePlate} from "../lib";
+import {testTable} from "./test_table";
 
 describe("validatePlate initial tests", () => {
     test("Function is defined", () => {
@@ -12,8 +15,10 @@ describe("validatePlate initial tests", () => {
     });
 });
 
-describe("validatePlate return tests", () => {
-    test("Providing valid vanity plate should return gloabl true", () => {
-        expect(validatePlate("W0 TEST")).toBe(true);
+describe("Module is correctly parsing: ", () => {
+    map(testTable, (entry) => {
+        return test(entry.label, () => {
+            expect(validatePlate(entry.plate)).toBe(entry.result);
+        });
     });
 });
