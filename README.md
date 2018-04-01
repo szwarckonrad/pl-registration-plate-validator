@@ -29,3 +29,7 @@ var isPlateValid = validatePlate("WY23003");
 3. Scripts:
     * `npm run build` Builds with TSC to ES5 .js module
     * `npm run test` Fire ups Jest test 
+    
+## TODO
+1. Add description of tests module runs to determine whether the plate is valid or not.
+2. Add verbose mode that will return an object with detailed info on the plate.
