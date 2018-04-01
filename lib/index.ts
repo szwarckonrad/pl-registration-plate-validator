@@ -59,11 +59,9 @@ export const validatePlate = (userInput: string): boolean => {
 const isValidVanityPlate = (plate: IPlate): boolean => {
     // Only two last symbols might be a number
     const [, , ...suffix] = plate; // Skip voivodeship prefix (e.q W0);
-    console.log(suffix);
 
     switch (suffix.length) {
         case 3:
-            console.log("3 letter suffix");
             if (typeof suffix[0] !== "string") {
                 return false;
             }
