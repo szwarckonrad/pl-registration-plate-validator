@@ -1,6 +1,6 @@
 {
   "name": "pl-registration-plate-validator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Validate provided Polish registration plate number.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
