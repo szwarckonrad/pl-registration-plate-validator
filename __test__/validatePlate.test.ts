@@ -8,7 +8,8 @@ describe("validatePlate initial tests", () => {
         expect(validatePlate).toBeDefined();
     });
     test("Throw error if typeof userInput !== \"string\", pass otherwise", () => {
-        expect(() => validatePlate(0).toThrowError(TypeError));
+        const t = () => validatePlate(0);
+        expect(t).toThrowError(TypeError);
     });
     test("Return false if provided plate first symbol isnt a letter", () => {
         expect(validatePlate("0WY00")).toBe(false);

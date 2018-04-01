@@ -28,7 +28,7 @@ type IPlate = Array<string|number>;
 export const validatePlate = (userInput: string): boolean => {
     // User input validation, userInput may be a string only.
     if (typeof userInput !== "string") {
-        throw userInputError(userInput);
+        userInputError(userInput);
     }
 
     // Strip userInput of all but letters and numbers. Also, return upperCased.
@@ -71,12 +71,10 @@ const isValidVanityPlate = (plate: IPlate): boolean => {
                 return false;
             }
             break;
-        case 5:
-            if (typeof suffix[0] !== "string" || typeof suffix[1] !== "string" && typeof suffix[2] !== "string") {
+        default: // case 5
+            if (typeof suffix[0] !== "string" || typeof suffix[1] !== "string" || typeof suffix[2] !== "string") {
                 return false;
             }
-            break;
-        default:
             break;
     }
 
@@ -105,9 +103,8 @@ const isValidPlate = (plate: IPlate): boolean => {
  */
 
 const isVanityPlate = (plate: IPlate): boolean => {
-    const matchRegexp = (/[A-Z]/g);
     // Tests made on the base of https://pl.wikipedia.org/wiki/Tablice_rejestracyjne_w_Polsce#Tablice_indywidualne
-    if (typeof plate[1] !== "number" || !matchRegexp.test(plate[2] as string)) {
+    if (typeof plate[1] !== "number" ) {
         return false;
     } else if (plate.length < 5 || plate.length > 7) {
         return false;
@@ -134,6 +131,6 @@ const parseSymbols = (plate: string[]) => {
  * Errors
  */
 
-const userInputError = (input: string): TypeError => {
+const userInputError = (input: any): TypeError => {
     throw new TypeError(`Input has to be a string. ${typeof input} is not a "string"`);
 };
