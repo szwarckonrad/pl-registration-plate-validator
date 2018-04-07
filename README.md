@@ -4,7 +4,7 @@
 
 NPM package for validating user provided Polish registration plate. Works with registration plates issued after 2000 both regular (e.q. WZ 20000) and vanity (WO SIEMA).
 
-In current version package exports a function of boolean return that takes a string as an argument.
+In current version package exports a function of ```{valid, type, voivodeship, county, city}``` return that takes a string as an argument.
 
 ## Installation
 
@@ -16,16 +16,72 @@ In current version package exports a function of boolean return that takes a str
 ```
 import {validatePlate} from "pl-registration-plate-validator";
 
-const userInput = "WY 52322"; 
-const isPlateValid = validatePlate(userInput); // True
+const userInput = "WY 52322";
+const processedPlate = validatePlate(userInput); // {valid: true, type: regular, voivodeship: mazowieckie, city: Warszawa, county: Wola}
+const isPlateValid = processedPlate.valid; // true
 ```
 
 ### ES5
 
 ```
 var validePlate = require("pl-registration-plate-validator");
-var isPlateValid = validatePlate("WY23003"); // True
+var processedPlate = validatePlate("WQ23003"); // {valid: false}
+var isPlateValid = processedPlate.valid; // false
 ```
+
+
+## Results
+
+If plate is a valid **regular** plate returned object is of type 
+```
+{
+    valid: true
+    type: "regular"
+    voivodeship: string
+    county: string
+    city: string
+}
+```
+
+If it is a valid **vanity** plate, returned object is of type
+```
+{
+    valid: true
+    type: "vanity"
+    voivodeship: string    
+}
+```
+
+If it is not a valid plate, in both **vanity** and **regular** cases, returned object is of type
+```
+{
+    valid: false 
+}
+```
+## Changelog
+
+### Version 1.0.0
+Validation returns object with mandatory "valid" field.
+
+If valid, return will look like
+```
+{
+    valid: true,
+    type: "regular",
+    voivodeship: Lubelskie,
+    county: Lublin, 
+    city: Lublin
+}
+```
+else 
+
+```
+{
+    valid: false
+}
+```
+### Version < 1.0.0
+Validation returns boolean value.
 
 ## Under the hood
 
@@ -36,7 +92,7 @@ Package runs a series of tests to determine whether a plate is valid or not. Cur
   * Length of both types (regular 7-8, vanity 5-7)
   * Prefix existence in provided JSON data files(both XY and XYZ prefixes)
   * Vanity plate suffix can contain of no more than 2 digits, placed in two last chars.
-   
+
 
 ## Dev
 1. `git pull https://github.com/szwarckonrad/pl-registration-plate-validator.git`
@@ -44,7 +100,7 @@ Package runs a series of tests to determine whether a plate is valid or not. Cur
 3. Scripts:
     * `npm run build` Builds with TSC to ES5 .js module
     * `npm run test` Fire ups Jest tests
-    
+
 ## TODO
 1. Add description of tests module runs to determine whether the plate is valid or not.
-2. Add verbose mode that will return an object with detailed info on the plate.
+2. ~~Add verbose mode that will return an object with detailed info on the plate.~~ v1.0.0

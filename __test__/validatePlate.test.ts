@@ -11,15 +11,12 @@ describe("validatePlate initial tests", () => {
         const t = () => validatePlate(0);
         expect(t).toThrowError(TypeError);
     });
-    test("Return false if provided plate first symbol isnt a letter", () => {
-        expect(validatePlate("0WY00")).toBe(false);
-    });
 });
 
 describe("Module is correctly parsing: ", () => {
     map(testTable, (entry) => {
         return test(entry.label, () => {
-            expect(validatePlate(entry.plate)).toBe(entry.result);
+            expect(validatePlate(entry.plate)).toEqual(entry.result);
         });
     });
 });
